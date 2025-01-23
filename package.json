@@ -35,7 +35,8 @@
     "eslint-plugin-spellcheck": "^0.0.20",
     "eslint-plugin-typescript-sort-keys": "^3.1.0",
     "eslint-plugin-unicorn": "^48.0.0",
-    "eslint-plugin-unused-imports": "^3.0.0"
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-decd7b8-20250118"
   },
   "devDependencies": {
     "@types/bun": "1.2.0"

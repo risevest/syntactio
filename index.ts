@@ -35,6 +35,7 @@ module.exports = {
     "typescript-sort-keys",
     "unicorn",
     "spellcheck",
+    "eslint-plugin-react-compiler",
   ],
   root: true,
   rules: {
@@ -80,5 +81,6 @@ module.exports = {
         skipWordIfMatch: ["^[A-Z]{2,}$"],
       },
     ],
+    "react-compiler/react-compiler": "error",
   },
 };
