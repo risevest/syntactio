@@ -23,15 +23,15 @@ bun install -D @risemaxi/syntactio
 ## Peer Dependencies
 
 - TypeScript ^5.0.0
-- ESLint ^9.0.0
+- ESLint ^8.0.0
 
 ## Usage
 
 In `.eslintrc.js`:
 
-```javascript
+```js
 module.exports = {
-  extends: ["@risemaxi/syntactio"],
+  extends: [require.resolve("@risemaxi/syntactio")],
 };
 ```
 
