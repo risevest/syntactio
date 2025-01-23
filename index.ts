@@ -11,7 +11,6 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "@react-native-community",
     "plugin:react/recommended",
-    "plugin:unicorn/recommended",
     "prettier",
   ],
   globals: {
@@ -35,6 +34,7 @@ module.exports = {
     "unused-imports",
     "typescript-sort-keys",
     "unicorn",
+    "spellcheck",
   ],
   root: true,
   rules: {
@@ -68,17 +68,16 @@ module.exports = {
         },
       },
     ],
-    "unicorn/no-null": "off",
-    "unicorn/no-useless-undefined": "off",
-    "unicorn/prevent-abbreviations": [
-      "error",
+    "spellcheck/spell-checker": [
+      "warn",
       {
-        replacements: {
-          args: false,
-          params: false,
-          props: false,
-          ref: false,
-        },
+        comments: true,
+        strings: true,
+        identifiers: false,
+        templates: true,
+        lang: "en_US",
+        skipIfMatch: ["^https?://"],
+        skipWordIfMatch: ["^[A-Z]{2,}$"],
       },
     ],
   },
