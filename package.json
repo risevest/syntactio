@@ -1,6 +1,6 @@
 {
   "name": "@risemaxi/syntactio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Eslint config for Rise client apps",
   "type": "commonjs",
   "main": "dist/index.js",
@@ -24,6 +24,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@react-native-community/eslint-config": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "eslint-config-prettier": "^9.0.0",
