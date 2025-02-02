@@ -11,6 +11,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "@react-native-community",
     "plugin:react/recommended",
+    "plugin:react-native-a11y/all",
     "prettier",
   ],
   globals: {
