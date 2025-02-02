@@ -34,7 +34,6 @@ module.exports = {
     "unused-imports",
     "typescript-sort-keys",
     "unicorn",
-    "spellcheck",
     "eslint-plugin-react-compiler",
   ],
   root: true,
@@ -67,18 +66,6 @@ module.exports = {
         cases: {
           kebabCase: true,
         },
-      },
-    ],
-    "spellcheck/spell-checker": [
-      "warn",
-      {
-        comments: true,
-        strings: true,
-        identifiers: false,
-        templates: true,
-        lang: "en_US",
-        skipIfMatch: ["^https?://"],
-        skipWordIfMatch: ["^[A-Z]{2,}$"],
       },
     ],
     "react-compiler/react-compiler": "error",
