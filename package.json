@@ -1,6 +1,6 @@
 {
   "name": "@risemaxi/syntactio",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Eslint config for Rise client apps",
   "type": "commonjs",
   "main": "dist/index.js",

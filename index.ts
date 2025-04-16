@@ -36,6 +36,7 @@ module.exports = {
     "typescript-sort-keys",
     "unicorn",
     "eslint-plugin-react-compiler",
+    "import",
   ],
   root: true,
   rules: {
