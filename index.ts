@@ -73,12 +73,4 @@ module.exports = {
     "react-compiler/react-compiler": "error",
     "import/no-default-export": "error",
   },
-  overrides: [
-    {
-      files: ["src/app/**/*", "app/**/*"],
-      rules: {
-        "import/no-default-export": "off",
-      },
-    },
-  ],
 };
