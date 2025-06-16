@@ -72,5 +72,9 @@ module.exports = {
     ],
     "react-compiler/react-compiler": "error",
     "import/no-default-export": "error",
+    "no-unused-expressions": [
+      "error",
+      { allowShortCircuit: false, allowTernary: false },
+    ],
   },
 };
