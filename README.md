@@ -22,17 +22,19 @@ bun install -D @risemaxi/syntactio
 
 ## Peer Dependencies
 
-- TypeScript ^5.0.0
-- ESLint ^8.0.0
+- TypeScript ^5.9.3
+- ESLint ^9.0.0
 
 ## Usage
 
-In `.eslintrc.js`:
+Use it after your base Expo config in `eslint.config.js`:
 
 ```js
-module.exports = {
-  extends: [require.resolve("@risemaxi/syntactio")],
-};
+const { defineConfig } = require("eslint/config");
+const expoConfig = require("eslint-config-expo/flat");
+const riseConfig = require("@risemaxi/syntactio");
+
+module.exports = defineConfig([expoConfig, riseConfig]);
 ```
 
 ## License

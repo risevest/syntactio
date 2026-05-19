@@ -1,31 +1,34 @@
 {
   "name": "@risemaxi/syntactio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Risevest Developers",
     "url": "https://github.com/risevest/syntactio"
   },
   "main": "dist/index.js",
   "dependencies": {
-    "@react-native-community/eslint-config": "^3.2.0",
-    "@typescript-eslint/eslint-plugin": "^8.37.0",
-    "@typescript-eslint/parser": "^8.37.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "5.5.3",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-compiler": "^19.1.0-rc.2",
-    "eslint-plugin-react-hooks": "^6.0.0-rc.1",
+    "eslint-plugin-react-native": "^5.0.0",
     "eslint-plugin-react-native-a11y": "^3.5.1",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
-    "eslint-plugin-unicorn": "^56",
-    "eslint-plugin-unused-imports": "^4.1.4"
+    "eslint-plugin-unicorn": "^64.0.0",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "globals": "^17.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.0",
+    "eslint": "^9.39.4",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "eslint": "^8.52.0",
-    "typescript": "^5.8.3"
+    "eslint": "^9.0.0",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/risevest/syntactio.git"
   },
   "bugs": {
     "url": "https://github.com/risevest/syntactio/issues"
@@ -37,12 +40,9 @@
   "keywords": [
     "eslint",
     "eslintconfig",
+    "expo",
     "rise"
   ],
-  "overrides": {
-    "@typescript-eslint/eslint-plugin": "^8.37.0",
-    "eslint-plugin-react-hooks": "^6.0.0-rc.1"
-  },
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc"

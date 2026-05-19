@@ -1,81 +1,95 @@
-module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-    jest: true,
-    node: true,
-  },
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "@react-native-community",
-    "plugin:react/recommended",
-    "plugin:react-native-a11y/all",
-    "prettier",
-  ],
-  globals: {
-    Atomics: "readonly",
-    NodeJS: true,
-    SharedArrayBuffer: "readonly",
-  },
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: "module",
-  },
-  plugins: [
-    "react",
-    "@typescript-eslint",
-    "simple-import-sort",
-    "sort-keys-fix",
-    "unused-imports",
-    "typescript-sort-keys",
-    "unicorn",
-    "eslint-plugin-react-compiler",
-    "react-hooks",
-    "import",
-  ],
-  root: true,
-  rules: {
-    "comma-dangle": ["error", "never"],
-    "no-console": 2,
-    "no-extra-boolean-cast": 0,
-    "react/jsx-curly-brace-presence": [
-      1,
-      { children: "never", props: "never" },
-    ],
-    "react/jsx-sort-props": [
-      "error",
-      {
-        ignoreCase: true,
+const { defineConfig } = require("eslint/config");
+const prettierConfig = require("eslint-config-prettier");
+const reactNativePlugin = require("eslint-plugin-react-native");
+const reactNativeA11yPlugin = require("eslint-plugin-react-native-a11y");
+const simpleImportSortPlugin = require("eslint-plugin-simple-import-sort");
+const sortKeysFixPlugin = require("eslint-plugin-sort-keys-fix");
+const typescriptSortKeysPlugin = require("eslint-plugin-typescript-sort-keys");
+const unicornPlugin = require("eslint-plugin-unicorn").default;
+const unusedImportsPlugin = require("eslint-plugin-unused-imports");
+const globals = require("globals");
+
+module.exports = defineConfig([
+  prettierConfig,
+  {
+    languageOptions: {
+      ecmaVersion: "latest",
+      globals: {
+        ...globals.browser,
+        ...globals.es2026,
+        ...globals.jest,
+        ...globals.node,
+        __DEV__: "readonly",
+        cancelAnimationFrame: "readonly",
+        cancelIdleCallback: "readonly",
+        clearImmediate: "readonly",
+        ErrorUtils: "readonly",
+        requestAnimationFrame: "readonly",
+        requestIdleCallback: "readonly",
+        setImmediate: "readonly",
+        Atomics: "readonly",
+        NodeJS: "readonly",
+        SharedArrayBuffer: "readonly",
       },
-    ],
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "react/react-in-jsx-scope": "off",
-    semi: 0,
-    "simple-import-sort/exports": "warn",
-    "simple-import-sort/imports": "warn",
-    "sort-keys-fix/sort-keys-fix": "warn",
-    "typescript-sort-keys/interface": "warn",
-    "typescript-sort-keys/string-enum": "warn",
-    "unicorn/filename-case": [
-      "error",
-      {
-        cases: {
-          kebabCase: true,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
         },
+        sourceType: "module",
       },
-    ],
-    "react-compiler/react-compiler": "error",
-    "import/no-default-export": "error",
-    "no-unused-expressions": [
-      "error",
-      { allowShortCircuit: false, allowTernary: false },
-    ],
+    },
+    plugins: {
+      "react-native": reactNativePlugin,
+      "react-native-a11y": reactNativeA11yPlugin,
+      "simple-import-sort": simpleImportSortPlugin,
+      "sort-keys-fix": sortKeysFixPlugin,
+      "typescript-sort-keys": typescriptSortKeysPlugin,
+      unicorn: unicornPlugin,
+      "unused-imports": unusedImportsPlugin,
+    },
+    rules: {
+      ...reactNativeA11yPlugin.configs.all.rules,
+      "comma-dangle": ["error", "never"],
+      "import/no-default-export": "error",
+      "no-console": 2,
+      "no-extra-boolean-cast": 0,
+      "no-unused-expressions": [
+        "error",
+        { allowShortCircuit: false, allowTernary: false },
+      ],
+      "react-native/no-inline-styles": "warn",
+      "react/jsx-curly-brace-presence": [
+        1,
+        { children: "never", props: "never" },
+      ],
+      "react/jsx-sort-props": [
+        "error",
+        {
+          ignoreCase: true,
+        },
+      ],
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error",
+      "react/react-in-jsx-scope": "off",
+      semi: 0,
+      "simple-import-sort/exports": "warn",
+      "simple-import-sort/imports": "warn",
+      "sort-keys-fix/sort-keys-fix": "warn",
+      "typescript-sort-keys/interface": "warn",
+      "typescript-sort-keys/string-enum": "warn",
+      "unicorn/filename-case": [
+        "error",
+        {
+          cases: {
+            kebabCase: true,
+          },
+        },
+      ],
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
   },
-};
+]);
