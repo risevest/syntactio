@@ -1,6 +1,6 @@
 {
   "name": "@risemaxi/syntactio",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "Risevest Developers",
     "url": "https://github.com/risevest/syntactio"
@@ -24,7 +24,7 @@
   },
   "peerDependencies": {
     "eslint": "^9.0.0",
-    "typescript": "^5.9.3"
+    "typescript": "*"
   },
   "repository": {
     "type": "git",
