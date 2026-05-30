@@ -1,33 +1,22 @@
 # @risemaxi/syntactio
 
-ESLint config for Rise client apps.
+Linting and formatting config for Rise client apps.
 
 ## Installation
 
 ```bash
-npm install -D @risemaxi/syntactio
+bun add -D @risemaxi/syntactio
 ```
 
-OR
+### Optional: Oxlint + Oxfmt
 
 ```bash
-yarn add -D @risemaxi/syntactio
+bun add -D oxlint oxfmt oxlint-tsgolint eslint-plugin-react-hooks
 ```
-
-OR
-
-```bash
-bun install -D @risemaxi/syntactio
-```
-
-## Peer Dependencies
-
-- TypeScript ^5.9.3
-- ESLint ^9.0.0
 
 ## Usage
 
-Use it after your base Expo config in `eslint.config.js`:
+### ESLint (default)
 
 ```js
 const { defineConfig } = require("eslint/config");
@@ -36,6 +25,50 @@ const riseConfig = require("@risemaxi/syntactio");
 
 module.exports = defineConfig([expoConfig, riseConfig]);
 ```
+
+### Oxlint
+
+```ts
+import { defineConfig } from "oxlint";
+import syntactioConfig from "@risemaxi/syntactio/oxlint";
+
+export default defineConfig({
+  extends: [syntactioConfig],
+  overrides: [
+    {
+      files: ["src/app/**"],
+      rules: { "import/no-default-export": "off" },
+    },
+  ],
+});
+```
+
+With React Compiler rules (requires `eslint-plugin-react-hooks@>=6.0.0`):
+
+```ts
+import { defineConfig } from "oxlint";
+import syntactioConfig from "@risemaxi/syntactio/oxlint/compiler";
+
+export default defineConfig({
+  extends: [syntactioConfig],
+});
+```
+
+### Oxfmt
+
+```ts
+export { default } from "@risemaxi/syntactio/oxfmt";
+```
+
+## Exports
+
+| Export                                    | Description                                          |
+| ----------------------------------------- | ---------------------------------------------------- |
+| `@risemaxi/syntactio`                     | ESLint flat config                                   |
+| `@risemaxi/syntactio/oxlint`              | Oxlint config                                        |
+| `@risemaxi/syntactio/oxlint/compiler`     | Oxlint + React Compiler rules                        |
+| `@risemaxi/syntactio/oxfmt`               | Oxfmt config                                         |
+| `@risemaxi/syntactio/react-native-compat` | Rewritten unmaintained react-native rules for oxlint |
 
 ## License
 

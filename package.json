@@ -1,16 +1,22 @@
 {
   "name": "@risemaxi/syntactio",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "author": {
     "name": "Risevest Developers",
     "url": "https://github.com/risevest/syntactio"
   },
   "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./oxlint": "./dist/oxlint.config.js",
+    "./oxlint/compiler": "./dist/oxlint.compiler.config.js",
+    "./oxfmt": "./dist/oxfmt.config.js",
+    "./react-native-compat": "./dist/react-native-compat.js"
+  },
   "dependencies": {
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-native": "^5.0.0",
     "eslint-plugin-react-native-a11y": "^3.5.1",
-    "eslint-plugin-simple-import-sort": "^13.0.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "eslint-plugin-unicorn": "^64.0.0",
@@ -20,11 +26,34 @@
   "devDependencies": {
     "@types/node": "^25.9.0",
     "eslint": "^9.39.4",
+    "oxfmt": "^0.52.0",
+    "oxlint": "^1.67.0",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": ">=4.0.0",
+    "oxfmt": ">=0.26.0",
+    "oxlint": ">=1.0.0",
+    "oxlint-tsgolint": ">=0.23.0",
     "typescript": "*"
+  },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    },
+    "eslint-plugin-react-hooks": {
+      "optional": true
+    },
+    "oxfmt": {
+      "optional": true
+    },
+    "oxlint": {
+      "optional": true
+    },
+    "oxlint-tsgolint": {
+      "optional": true
+    }
   },
   "repository": {
     "type": "git",
@@ -33,19 +62,28 @@
   "bugs": {
     "url": "https://github.com/risevest/syntactio/issues"
   },
-  "description": "Eslint config for Rise client apps",
+  "description": "Linting and formatting config for Rise client apps. Supports ESLint, Oxlint, and Oxfmt.",
   "files": [
-    "dist"
+    "dist",
+    "oxlint.config.js",
+    "oxlint.compiler.config.js",
+    "oxfmt.config.js",
+    "react-native-compat.ts"
   ],
   "keywords": [
     "eslint",
     "eslintconfig",
+    "oxlint",
+    "oxfmt",
     "expo",
     "rise"
   ],
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc"
+    "build": "tsc",
+    "lint:oxlint": "oxlint -c oxlint.config.js src/",
+    "lint:oxfmt": "oxfmt --check src/",
+    "lint:eslint": "eslint dist/"
   },
-  "type": "commonjs"
+  "type": "module"
 }
