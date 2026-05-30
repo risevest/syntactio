@@ -53,15 +53,9 @@ module.exports = defineConfig([
       "import/no-default-export": "error",
       "no-console": 2,
       "no-extra-boolean-cast": 0,
-      "no-unused-expressions": [
-        "error",
-        { allowShortCircuit: false, allowTernary: false },
-      ],
+      "no-unused-expressions": ["error", { allowShortCircuit: false, allowTernary: false }],
       "react-native/no-inline-styles": "warn",
-      "react/jsx-curly-brace-presence": [
-        1,
-        { children: "never", props: "never" },
-      ],
+      "react/jsx-curly-brace-presence": [1, { children: "never", props: "never" }],
       "react/jsx-sort-props": [
         "error",
         {

@@ -2,11 +2,7 @@ import { defineConfig } from "oxlint";
 
 export default defineConfig({
   plugins: ["unicorn", "typescript", "import", "react", "jsx-a11y"],
-  jsPlugins: [
-    "./react-native-compat.js",
-    "eslint-plugin-react-native",
-    "eslint-plugin-react-native-a11y",
-  ],
+  jsPlugins: ["./react-native-compat.js", "eslint-plugin-react-native", "eslint-plugin-react-native-a11y"],
   categories: {
     correctness: "error",
     suspicious: "warn",
@@ -40,22 +36,11 @@ export default defineConfig({
       version: "19.0",
     },
   },
-  ignorePatterns: [
-    "node_modules",
-    "dist",
-    "*.js",
-    "*.d.ts",
-    "*.json",
-    "bun.lock",
-    "package-lock.json",
-  ],
+  ignorePatterns: ["node_modules", "dist", "*.js", "*.d.ts", "*.json", "bun.lock", "package-lock.json"],
   rules: {
     // ESLint core
     "no-console": "error",
-    "no-unused-expressions": [
-      "error",
-      { allowShortCircuit: false, allowTernary: false },
-    ],
+    "no-unused-expressions": ["error", { allowShortCircuit: false, allowTernary: false }],
     "no-extra-boolean-cast": "off",
     "no-useless-assignment": "error",
     "prefer-const": "error",
@@ -75,10 +60,7 @@ export default defineConfig({
     "react/rules-of-hooks": "error",
     "react/exhaustive-deps": "error",
     "react/hook-use-state": "error",
-    "react/jsx-curly-brace-presence": [
-      "warn",
-      { children: "never", props: "never" },
-    ],
+    "react/jsx-curly-brace-presence": ["warn", { children: "never", props: "never" }],
     "react/no-unstable-nested-components": "error",
     "react/no-clone-element": "error",
     "react/no-react-children": "error",
