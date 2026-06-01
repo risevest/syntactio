@@ -1,31 +1,19 @@
-import { defineConfig } from 'oxlint';
-import baseConfig from './oxlint.config.js';
+import { defineConfig } from "oxlint";
 
-export default defineConfig({
-  ...baseConfig,
+/**
+ * React Compiler rules. Standalone.
+ * Requires eslint-plugin-react-hooks@>=6.0.0.
+ * Compose with other configs:
+ *   extends: [nativeConfig, compilerConfig]
+ */
+export const compilerConfig = defineConfig({
   jsPlugins: [
-    ...baseConfig.jsPlugins,
     {
-      name: 'react-compiler',
-      specifier: 'eslint-plugin-react-hooks'
-    }
+      name: "react-compiler",
+      specifier: "eslint-plugin-react-hooks",
+    },
   ],
   rules: {
-    ...baseConfig.rules,
-    'react-compiler/set-state-in-render': 'error',
-    'react-compiler/set-state-in-effect': 'error',
-    'react-compiler/refs': 'error',
-    'react-compiler/purity': 'error',
-    'react-compiler/immutability': 'error',
-    'react-compiler/globals': 'error',
-    'react-compiler/static-components': 'error',
-    'react-compiler/use-memo': 'error',
-    'react-compiler/component-hook-factories': 'error',
-    'react-compiler/preserve-manual-memoization': 'error',
-    'react-compiler/incompatible-library': 'warn',
-    'react-compiler/error-boundaries': 'error',
-    'react-compiler/unsupported-syntax': 'warn',
-    'react-compiler/config': 'error',
-    'react-compiler/gating': 'error'
-  }
+    "react-compiler/react-compiler": "error",
+  },
 });

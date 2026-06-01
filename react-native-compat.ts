@@ -283,7 +283,7 @@ function collectColorLiterals(node: Node): { expression: Record<string, unknown>
 
 // --- Plugin ---
 
-export default {
+export = {
   meta: {
     name: "react-native-compat",
   },

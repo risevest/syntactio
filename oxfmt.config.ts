@@ -1,6 +1,6 @@
 import { defineConfig } from "oxfmt";
 
-export default defineConfig({
+export const oxfmtConfig = defineConfig({
   singleQuote: true,
   trailingComma: "none",
   semi: true,
@@ -28,5 +28,5 @@ export default defineConfig({
   sortPackageJson: {
     sortScripts: true,
   },
-  ignorePatterns: ["node_modules", "dist", "bun.lock", "package-lock.json"],
+  ignorePatterns: ["node_modules", "dist", "bun.lock", "package-lock.json", "yarn.lock"],
 });

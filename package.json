@@ -9,6 +9,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./oxlint": "./dist/oxlint.config.js",
+    "./oxlint/react": "./dist/oxlint.react.config.js",
+    "./oxlint/native": "./dist/oxlint.native.config.js",
     "./oxlint/compiler": "./dist/oxlint.compiler.config.js",
     "./oxfmt": "./dist/oxfmt.config.js",
     "./react-native-compat": "./dist/react-native-compat.js"
@@ -77,8 +79,7 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc",
-    "lint:eslint": "eslint dist/"
+    "build": "tsc"
   },
-  "type": "module"
+  "type": "commonjs"
 }
