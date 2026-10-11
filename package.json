@@ -1,24 +1,74 @@
 {
   "name": "@risemaxi/syntactio",
-  "version": "0.3.0",
+  "version": "0.4.0",
+  "description": "Linting and formatting config for Rise client apps. Supports ESLint, Oxlint, and Oxfmt.",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "expo",
+    "oxfmt",
+    "oxlint",
+    "rise"
+  ],
+  "bugs": {
+    "url": "https://github.com/risevest/syntactio/issues"
+  },
   "author": {
     "name": "Risevest Developers",
     "url": "https://github.com/risevest/syntactio"
   },
-  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/risevest/syntactio.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "dist/eslint.cjs",
   "exports": {
-    ".": "./dist/index.js",
-    "./oxlint": "./dist/oxlint.config.js",
-    "./oxlint/react": "./dist/oxlint.react.config.js",
-    "./oxlint/native": "./dist/oxlint.native.config.js",
-    "./oxlint/compiler": "./dist/oxlint.compiler.config.js",
-    "./oxfmt": "./dist/oxfmt.config.js",
-    "./react-native-compat": "./dist/react-native-compat.js"
+    ".": {
+      "types": "./dist/eslint.d.cts",
+      "default": "./dist/eslint.cjs"
+    },
+    "./oxlint": {
+      "types": "./dist/oxlint/base.d.ts",
+      "default": "./dist/oxlint/base.js"
+    },
+    "./oxlint/react": {
+      "types": "./dist/oxlint/react.d.ts",
+      "default": "./dist/oxlint/react.js"
+    },
+    "./oxlint/native": {
+      "types": "./dist/oxlint/native.d.ts",
+      "default": "./dist/oxlint/native.js"
+    },
+    "./oxlint/compiler": {
+      "types": "./dist/oxlint/compiler.d.ts",
+      "default": "./dist/oxlint/compiler.js"
+    },
+    "./oxfmt": {
+      "types": "./dist/oxfmt.d.ts",
+      "default": "./dist/oxfmt.js"
+    },
+    "./react-native-compat": {
+      "types": "./dist/react-native-compat.d.ts",
+      "default": "./dist/react-native-compat.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react-native": "^5.0.0",
     "eslint-plugin-react-native-a11y": "^3.5.1",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "eslint-plugin-unicorn": "^64.0.0",
@@ -28,24 +78,19 @@
   "devDependencies": {
     "@types/node": "^25.9.0",
     "eslint": "^9.39.4",
-    "oxfmt": "^0.52.0",
-    "oxlint": "^1.67.0",
-    "oxlint-tsgolint": "^0.23.0",
+    "oxfmt": "^0.72.0",
+    "oxlint": "^1.87.0",
+    "oxlint-tsgolint": "^7.0.2004",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "eslint": "^9.0.0",
-    "eslint-plugin-react-hooks": ">=4.0.0",
-    "oxfmt": ">=0.26.0",
-    "oxlint": ">=1.0.0",
-    "oxlint-tsgolint": "0.23.0",
-    "typescript": "*"
+    "oxfmt": ">=0.59.0",
+    "oxlint": ">=1.79.0",
+    "oxlint-tsgolint": ">=7.0.2003"
   },
   "peerDependenciesMeta": {
     "eslint": {
-      "optional": true
-    },
-    "eslint-plugin-react-hooks": {
       "optional": true
     },
     "oxfmt": {
@@ -58,28 +103,7 @@
       "optional": true
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/risevest/syntactio.git"
-  },
-  "bugs": {
-    "url": "https://github.com/risevest/syntactio/issues"
-  },
-  "description": "Linting and formatting config for Rise client apps. Supports ESLint, Oxlint, and Oxfmt.",
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "eslint",
-    "eslintconfig",
-    "oxlint",
-    "oxfmt",
-    "expo",
-    "rise"
-  ],
-  "scripts": {
-    "prepare": "npm run build",
-    "build": "tsc"
-  },
-  "type": "commonjs"
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
 }
