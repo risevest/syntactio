@@ -1,11 +1,5 @@
 import { defineConfig } from 'oxlint';
 
-/**
- * Globs every consumer should ignore. Oxlint resolves `ignorePatterns`
- * relative to the config file that declares them, so they only take effect
- * when set in the consumer's root config:
- *   ignorePatterns: [...ignorePatterns]
- */
 export const ignorePatterns = [
   'node_modules',
   'dist',

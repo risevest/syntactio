@@ -3,8 +3,6 @@ import { baseConfig } from './base.js';
 
 /**
  * React rules. Extends base.
- * React Compiler rules (purity, refs, immutability, set-state-in-effect, ...)
- * run natively via the `correctness` category.
  */
 export const reactConfig = defineConfig({
   extends: [baseConfig],

@@ -2,7 +2,7 @@ import { defineConfig } from 'oxlint';
 import { reactConfig } from './react.js';
 
 /**
- * React Native / Expo rules. Extends react.
+ * React Native rules. Extends react.
  * Includes compat plugin for rules that crash in the original plugin.
  */
 export const nativeConfig = defineConfig({
